@@ -6,13 +6,10 @@
   [string]
   (let [words (re-seq #"\w+" string)
         average (/ (reduce +
-                           (map #(count %)
-                                words))
+                           (map #(count %) words))
                    (count words))]
-
-    (vec
-     (filter #(> (count %) average)
-             words))))
+    (vec (filter #(> (count %) average)
+                 words))))
 
 
 (deftest test-asserts
